@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fireball : MonoBehaviour
+public class rock : MonoBehaviour
 {
     // Start is called before the first frame update
     public float despawnTime;
@@ -19,7 +19,8 @@ public class fireball : MonoBehaviour
         elapsedTime += Time.deltaTime;
     }
 
-    private void OnCollisionEnter2D (Collision2D other)
+
+    private void OnTriggerExit2D(Collider2D other)
     {
         //print("collide");
         Destroy(gameObject);

@@ -3,11 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Element
+{
+    fire,earth,water
+    
+}
+
+public enum Team
+{
+    red,blue
+}
 public class PlayerController : MonoBehaviour
 {
-    public string element;
+    public Element element;
 
-    public string team;
+    public Team team;
 
     private float forwardMove = 0f;
     private float rotationMove = 0f;
@@ -17,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     public float bulletSpeed;
     public GameObject bullet;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,20 +52,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) ||
             Input.GetMouseButtonDown(0))
         {
-            if (element == "fire")
-            {
-                
-            }
-            FireBall();
+            GameObject bulletInstance =Instantiate(bullet, transform.position + transform.right/1.5f, Quaternion.identity);
+            Rigidbody2D bulletrb2d = bulletInstance.GetComponent<Rigidbody2D>();
+            bulletrb2d.velocity = transform.right.normalized*bulletSpeed;
+            
         }
     }
 
-    private void FireBall()
-    {
-        GameObject bulletInstance =Instantiate(bullet, transform.position + transform.right/2, Quaternion.identity);
-        Rigidbody2D bulletrb2d = bulletInstance.GetComponent<Rigidbody2D>();
-        bulletrb2d.velocity = transform.right.normalized*bulletSpeed;
-    }
 
     private void OnTriggerExit2D(Collider2D other)
     {
