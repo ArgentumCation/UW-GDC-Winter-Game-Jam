@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float rotationMove = 0f;
     public float speed = 1.0f;
     public float angularSpeed = 1.0f;
-    
+    public float mu = .1f;
     private Transform transform;
     private Vector2 lastVelocity;
     private Rigidbody2D rb2d;
@@ -22,20 +23,21 @@ public class PlayerController : MonoBehaviour
         transform = GetComponent<Transform>();
         rb2d = GetComponent<Rigidbody2D>();
         lastVelocity = Vector2.zero;
+        rb2d.velocity = Vector2.zero;
+        rb2d.angularVelocity = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        forwardMove = Input.GetAxisRaw("Horizontal");
-        rotationMove = Input.GetAxisRaw("Vertical");
+        forwardMove = Input.GetAxisRaw("Vertical");
+        rotationMove = Input.GetAxisRaw("Horizontal");
     }
 
     void FixedUpdate()
     {
-        Vector2 currentAcceleration = (rb2d.velocity - lastVelocity)/Time.deltaTime;
-        rb2d.velocity += new Vector2(forwardMove,0)*speed*Time.deltaTime;
-        rb2d.angularVelocity += rotationMove * angularSpeed * Time.deltaTime;
-
+        print(rb2d.velocity);
+        rb2d.velocity += ((Vector2) transform.right) * forwardMove * Time.deltaTime * speed;
+        rb2d.angularVelocity = rotationMove * angularSpeed * Time.deltaTime;
     }
 }
