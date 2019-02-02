@@ -21,6 +21,7 @@ public class fireball : MonoBehaviour
 
     private void OnCollisionEnter2D (Collision2D other)
     {
+        
         //print("collide");
         Destroy(gameObject);
     }
