@@ -4,6 +4,11 @@
     <list default="true" id="521e3d62-eb32-4a56-b819-2db20e8c8ee4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Assets/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/fireball.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/fireball.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/fireball.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/fireball.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/fireball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/fireball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fireball.xcf" beforeDir="false" afterPath="$PROJECT_DIR$/fireball.xcf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,17 +21,35 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/PlayerController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="49" column="23" lean-forward="true" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+            <state relative-caret-position="618">
+              <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
               <folding>
-                <marker date="1549132280120" expanded="true" signature="6:92" ph="..." />
-                <marker date="1549132280120" expanded="true" signature="139:1696" ph="{...}" />
-                <marker date="1549132280120" expanded="true" signature="515:690" ph="{...}" />
-                <marker date="1549132280120" expanded="true" signature="748:867" ph="{...}" />
-                <marker date="1549132280120" expanded="true" signature="891:1397" ph="{...}" />
-                <marker date="1549132280120" expanded="true" signature="1267:1391" ph="{...}" />
-                <marker date="1549132280120" expanded="true" signature="1312:1357" ph="{...}" />
-                <marker date="1549132280120" expanded="true" signature="1418:1694" ph="{...}" />
+                <marker date="1549135661838" expanded="true" signature="6:92" ph="..." />
+                <marker date="1549135661838" expanded="true" signature="139:1783" ph="{...}" />
+                <marker date="1549135661838" expanded="true" signature="515:690" ph="{...}" />
+                <marker date="1549135661838" expanded="true" signature="756:1318" ph="{...}" />
+                <marker date="1549135661838" expanded="true" signature="1188:1312" ph="{...}" />
+                <marker date="1549135661838" expanded="true" signature="1233:1278" ph="{...}" />
+                <marker date="1549135661838" expanded="true" signature="1347:1623" ph="{...}" />
+                <marker date="1549135661838" expanded="true" signature="1675:1779" ph="{...}" />
+                <marker date="1549135661838" expanded="true" signature="1720:1773" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/fireball.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <folding>
+                <marker date="1549134091620" expanded="false" signature="6:78" ph="..." />
+                <marker date="1549134091620" expanded="true" signature="117:603" ph="{...}" />
+                <marker date="1549134091620" expanded="true" signature="255:276" ph="{...}" />
+                <marker date="1549134091620" expanded="true" signature="334:477" ph="{...}" />
+                <marker date="1549134091620" expanded="true" signature="379:432" ph="{...}" />
+                <marker date="1549134091620" expanded="true" signature="534:601" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -38,18 +61,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/fireball.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/fireball.cs" />
         <option value="$PROJECT_DIR$/Assets/PlayerController.cs" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="959" />
     <option name="width" value="968" />
     <option name="height" value="1087" />
   </component>
@@ -127,12 +151,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549078007905</updated>
-      <workItem from="1549078011087" duration="8520000" />
+      <workItem from="1549078011087" duration="11891000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8520000" />
+    <option name="totallyTimeSpent" value="11891000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -144,13 +168,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="959" y="0" width="968" height="1087" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Image Layers" />
       <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.026652452" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.05506608" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="NuGet" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
@@ -193,19 +217,35 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/fireball.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <marker date="1549134091620" expanded="false" signature="6:78" ph="..." />
+            <marker date="1549134091620" expanded="true" signature="117:603" ph="{...}" />
+            <marker date="1549134091620" expanded="true" signature="255:276" ph="{...}" />
+            <marker date="1549134091620" expanded="true" signature="334:477" ph="{...}" />
+            <marker date="1549134091620" expanded="true" signature="379:432" ph="{...}" />
+            <marker date="1549134091620" expanded="true" signature="534:601" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/PlayerController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="49" column="23" lean-forward="true" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+        <state relative-caret-position="618">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
-            <marker date="1549132280120" expanded="true" signature="6:92" ph="..." />
-            <marker date="1549132280120" expanded="true" signature="139:1696" ph="{...}" />
-            <marker date="1549132280120" expanded="true" signature="515:690" ph="{...}" />
-            <marker date="1549132280120" expanded="true" signature="748:867" ph="{...}" />
-            <marker date="1549132280120" expanded="true" signature="891:1397" ph="{...}" />
-            <marker date="1549132280120" expanded="true" signature="1267:1391" ph="{...}" />
-            <marker date="1549132280120" expanded="true" signature="1312:1357" ph="{...}" />
-            <marker date="1549132280120" expanded="true" signature="1418:1694" ph="{...}" />
+            <marker date="1549135661838" expanded="true" signature="6:92" ph="..." />
+            <marker date="1549135661838" expanded="true" signature="139:1783" ph="{...}" />
+            <marker date="1549135661838" expanded="true" signature="515:690" ph="{...}" />
+            <marker date="1549135661838" expanded="true" signature="756:1318" ph="{...}" />
+            <marker date="1549135661838" expanded="true" signature="1188:1312" ph="{...}" />
+            <marker date="1549135661838" expanded="true" signature="1233:1278" ph="{...}" />
+            <marker date="1549135661838" expanded="true" signature="1347:1623" ph="{...}" />
+            <marker date="1549135661838" expanded="true" signature="1675:1779" ph="{...}" />
+            <marker date="1549135661838" expanded="true" signature="1720:1773" ph="{...}" />
           </folding>
         </state>
       </provider>

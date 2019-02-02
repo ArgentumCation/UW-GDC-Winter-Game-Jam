@@ -27,18 +27,14 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         forwardMove = Input.GetAxisRaw("Vertical");
         rotationMove = Input.GetAxisRaw("Horizontal");
-    }
-
-    void FixedUpdate()
-    {
-        //print(rb2d.velocity);
+        
+     
         rb2d.velocity += ((Vector2) transform.right) * forwardMove * Time.deltaTime * speed;
         rb2d.angularVelocity = rotationMove * angularSpeed * Time.deltaTime;
-        print(Input.inputString);
         //Fire
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) ||
             Input.GetMouseButtonDown(0))
@@ -47,14 +43,24 @@ public class PlayerController : MonoBehaviour
             {
                 
             }
-            fireBall();
+            FireBall();
         }
     }
 
-    void fireBall()
+    private void FireBall()
     {
-        GameObject bulletInstance =Instantiate(bullet, transform.position + transform.right/3, Quaternion.identity);
+        GameObject bulletInstance =Instantiate(bullet, transform.position + transform.right/2, Quaternion.identity);
         Rigidbody2D bulletrb2d = bulletInstance.GetComponent<Rigidbody2D>();
         bulletrb2d.velocity = transform.right.normalized*bulletSpeed;
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("court"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 }
