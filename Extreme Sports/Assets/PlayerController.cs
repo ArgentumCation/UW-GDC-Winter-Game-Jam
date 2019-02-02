@@ -11,18 +11,17 @@ public class PlayerController : MonoBehaviour
 
     private float forwardMove = 0f;
     private float rotationMove = 0f;
-    public float speed = 1.0f;
-    public float angularSpeed = 1.0f;
-    public float mu = .1f;
+    public float speed;
+    public float angularSpeed;
     private Transform transform;
-    private Vector2 lastVelocity;
     private Rigidbody2D rb2d;
+    public float bulletSpeed;
+    public GameObject bullet;
     // Start is called before the first frame update
     void Start()
     {
         transform = GetComponent<Transform>();
         rb2d = GetComponent<Rigidbody2D>();
-        lastVelocity = Vector2.zero;
         rb2d.velocity = Vector2.zero;
         rb2d.angularVelocity = 0;
     }
@@ -36,8 +35,21 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        print(rb2d.velocity);
+        //print(rb2d.velocity);
         rb2d.velocity += ((Vector2) transform.right) * forwardMove * Time.deltaTime * speed;
         rb2d.angularVelocity = rotationMove * angularSpeed * Time.deltaTime;
+        print(Input.inputString);
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) ||
+            Input.GetMouseButtonDown(0))
+        {
+            shoot();
+        }
+    }
+
+    void shoot()
+    {
+        GameObject bulletInstance =Instantiate(bullet, transform.position + transform.right, Quaternion.identity);
+        Rigidbody2D bulletrb2d = bulletInstance.GetComponent<Rigidbody2D>();
+        bulletrb2d.velocity = new Vector2(bulletSpeed,0);
     }
 }
