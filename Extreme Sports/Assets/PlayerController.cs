@@ -6,37 +6,48 @@ using UnityEngine;
 
 public enum Element
 {
-    fire,earth,water
-    
+    fire,
+    earth,
+    water
 }
 
 public enum Team
 {
-    red,blue
+    red,
+    blue
 }
+
 public class PlayerController : MonoBehaviour
 {
-    public Element element;
-
     public Team team;
 
     private float forwardMove = 0f;
     private float rotationMove = 0f;
     public float speed;
     public float angularSpeed;
-    private Transform transform;
+    private Transform bodyTransform;
     private Rigidbody2D rb2d;
-    public float bulletSpeed;
-    public GameObject bullet;
-    
-    
+
+    public List<BodyController> bodies;
+
+    public int bodyIndex;
+
     // Start is called before the first frame update
     void Start()
     {
-        transform = GetComponent<Transform>();
-        rb2d = GetComponent<Rigidbody2D>();
-        rb2d.velocity = Vector2.zero;
-        rb2d.angularVelocity = 0;
+        foreach (BodyController b in bodies)
+        {
+            b.Init(this);
+        }
+
+        ChangeBody();
+    }
+
+    private void ChangeBody()
+    {
+        bodyIndex = (bodyIndex + 1) % bodies.Count;
+        rb2d = bodies[bodyIndex].getRigidBody();
+        bodyTransform = rb2d.transform;
     }
 
     // Update is called once per frame
@@ -44,29 +55,50 @@ public class PlayerController : MonoBehaviour
     {
         forwardMove = Input.GetAxisRaw("Vertical");
         rotationMove = Input.GetAxisRaw("Horizontal");
-        
-     
-        rb2d.velocity += ((Vector2) transform.right) * forwardMove * Time.deltaTime * speed;
-        rb2d.angularVelocity = rotationMove * angularSpeed * Time.deltaTime;
+
+
+        rb2d.velocity +=
+            ((Vector2) bodyTransform.right) * forwardMove * Time.deltaTime * speed;
+        rb2d.angularVelocity = rotationMove * angularSpeed * Time.deltaTime * -1;
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Z) ||
+            Input.GetMouseButtonDown(1))
+        {
+            ChangeBody();
+        }
+
         //Fire
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) ||
             Input.GetMouseButtonDown(0))
         {
-            GameObject bulletInstance =Instantiate(bullet, transform.position + transform.right/1.5f, Quaternion.identity);
-            Rigidbody2D bulletrb2d = bulletInstance.GetComponent<Rigidbody2D>();
-            bulletrb2d.velocity = transform.right.normalized*bulletSpeed;
-            
+            bodies[bodyIndex].Fire();
         }
     }
 
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void Kill(BodyController b)
     {
-        if (other.CompareTag("court"))
+        //print(bodies.Count + ", " + bodyIndex);
+        //BodyController b = bodies[bodyIndex];
+        //print(2);
+        if (bodies.Count == 1)
         {
-            Destroy(gameObject);
+            //Todo: Game Over/Restart
+            return;
         }
+
+        int index = bodies.IndexOf(b);
+        bodies.RemoveAt(index);
+        if (index == bodyIndex)
+        {
+            bodyIndex--;
+            ChangeBody();
+        }
+
+        if (index < bodyIndex)
+        {
+            bodyIndex--;
+        }
+
+        Destroy(b.gameObject);
     }
-
-
 }

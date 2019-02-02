@@ -5,24 +5,26 @@ using UnityEngine;
 public class rock : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float despawnTime;
-    private float elapsedTime = 0f;
+    public int despawnHits;
+    private int hits = 0;
 
 
-    // Update is called once per frame
-    private void Update()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (elapsedTime > despawnTime)
+        hits++;
+        if (hits > despawnHits)
         {
             Destroy(gameObject);
         }
-        elapsedTime += Time.deltaTime;
+        
     }
-
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        //print("collide");
-        Destroy(gameObject);
+        if (other.CompareTag("court"))
+        {
+            Destroy(gameObject);   
+        }
+        
     }
 }
