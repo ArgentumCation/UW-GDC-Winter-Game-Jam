@@ -39,17 +39,22 @@ public class PlayerController : MonoBehaviour
         rb2d.velocity += ((Vector2) transform.right) * forwardMove * Time.deltaTime * speed;
         rb2d.angularVelocity = rotationMove * angularSpeed * Time.deltaTime;
         print(Input.inputString);
+        //Fire
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) ||
             Input.GetMouseButtonDown(0))
         {
-            shoot();
+            if (element == "fire")
+            {
+                
+            }
+            fireBall();
         }
     }
 
-    void shoot()
+    void fireBall()
     {
-        GameObject bulletInstance =Instantiate(bullet, transform.position + transform.right, Quaternion.identity);
+        GameObject bulletInstance =Instantiate(bullet, transform.position + transform.right/3, Quaternion.identity);
         Rigidbody2D bulletrb2d = bulletInstance.GetComponent<Rigidbody2D>();
-        bulletrb2d.velocity = new Vector2(bulletSpeed,0);
+        bulletrb2d.velocity = transform.right.normalized*bulletSpeed;
     }
 }

@@ -492,7 +492,7 @@ MonoBehaviour:
   team: blue
   speed: 10
   angularSpeed: 20000
-  bulletSpeed: 500
+  bulletSpeed: 5
   bullet: {fileID: 5352428561986499597, guid: 20575382ac44d0247944ddcfc6ac6a0b, type: 3}
 --- !u!212 &1782614418
 SpriteRenderer:
