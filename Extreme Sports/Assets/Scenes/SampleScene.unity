@@ -283,6 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1214017503}
   - component: {fileID: 1214017502}
+  - component: {fileID: 1214017504}
   m_Layer: 0
   m_Name: court
   m_TagString: Untagged
@@ -352,6 +353,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &1214017504
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214017501}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.0024212003, y: -5.398915}
+  - {x: -7.5765076, y: -2.7014546}
+  - {x: -7.5832705, y: 2.7100568}
+  - {x: -0.010452747, y: 5.3961506}
+  - {x: 7.585571, y: 2.7025063}
+  - {x: 7.5789084, y: -2.7109268}
+  - {x: 0.0045766532, y: -5.4006314}
 --- !u!1 &1747080365
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +466,8 @@ GameObject:
   - component: {fileID: 1782614419}
   - component: {fileID: 1782614418}
   - component: {fileID: 1782614417}
+  - component: {fileID: 1782614420}
+  - component: {fileID: 1782614421}
   m_Layer: 0
   m_Name: blue-fire
   m_TagString: Untagged
@@ -463,6 +489,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: fire
   team: blue
+  speed: 5
+  angularSpeed: 1
 --- !u!212 &1782614418
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -525,3 +553,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1782614420
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782614416}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &1782614421
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782614416}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32
