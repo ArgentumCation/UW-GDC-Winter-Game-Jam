@@ -1,15 +1,16 @@
-﻿Shader "Unlit/LoadingBarShader"
+﻿Shader "Unlit/LineShader"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
-        _Charge ("Charge", float) = 0
-        _FullColor ("FullColor", color) = (1, 1, 1, 1)
-        _EmptyColor ("EmptyColor", color) = (0,0,0,1)
+        _MainTex ("Texture", 2D) = "black" {}
+        _Active ("Active", float) = 0
+        _ActiveColor ("ActiveColor", color) = (0, 1, 0, 1)
     }
     SubShader
     {
-        Tags {"RenderType"="Opaque" }
+        Tags { "Queue"="Transparent" "RenderType"="Transparent" }
+        ZWrite Off
+        Blend SrcAlpha OneMinusSrcAlpha
         LOD 100
 
         Pass
@@ -37,9 +38,8 @@
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            uniform float _Charge;
-            uniform float4 _FullColor;
-            uniform float4 _EmptyColor;
+            uniform float _Active;
+            uniform float4 _ActiveColor;
 
             v2f vert (appdata v)
             {
@@ -52,7 +52,12 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
-                return (i.uv.x > _Charge) ? _EmptyColor : _FullColor;
+                // sample the texture
+                fixed4 col = tex2D(_MainTex, i.uv);
+                
+                col.xyz = lerp(col.xyz, _ActiveColor.xyz, _Active);
+                
+                return col;
             }
             ENDCG
         }

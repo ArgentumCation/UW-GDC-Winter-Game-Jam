@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class rock : MonoBehaviour
 {
@@ -15,7 +13,9 @@ public class rock : MonoBehaviour
         if (other.gameObject.CompareTag("earth"))
         {
             Destroy(gameObject);
+            return;
         }
+        
         hits++;
         if (hits > despawnHits)
         {
