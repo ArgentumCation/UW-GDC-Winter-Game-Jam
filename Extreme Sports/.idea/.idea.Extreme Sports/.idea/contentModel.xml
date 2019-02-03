@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\ajayk\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\ajayk\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Extreme Sports.-1932585573.00" t="ExcludeRecursive" />
-    <e p="D:\Game Development\Unity\UW-GDC-Winter-Game-Jam\Extreme Sports" t="IncludeRecursive">
+    <e p="C:\Users\Shine\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Shine\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Extreme Sports.1106477174.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Shine\Documents\GitHub\UW-GDC-Winter-Game-Jam\Extreme Sports" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Art" t="Include">
           <e p="Materials" t="Include">
+            <e p="LineShader.shader" t="Include" />
             <e p="LoadingBarShader.shader" t="Include" />
           </e>
         </e>
@@ -16,6 +17,7 @@
           <e p="bodyController.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
           <e p="Charge.cs" t="Include" />
+          <e p="Court.cs" t="Include" />
           <e p="earth.cs" t="Include" />
           <e p="fireball.cs" t="Include" />
           <e p="GameOver.cs" t="Include" />
