@@ -18,10 +18,12 @@ public class CameraController : MonoBehaviour
     public float zoomSpeed;
     private Camera camera;
 
+    private AudioSource audioSource;
     // Update is called once per frame
     private void Start()
     {
         camera = GetComponent<Camera>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -48,5 +50,12 @@ public class CameraController : MonoBehaviour
         Vector2 maxVect = new Vector2(maxX,maxX);
         float targetSize = ((maxVect - minVect).magnitude + scale) / 4.0f;
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, targetSize,zoomSpeed) ;
+        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            audioSource.volume = audioSource.volume <= 0.001f ? 1f : 0f;
+            
+            
+        }
     }
 }
