@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameOver : MonoBehaviour
 {
     private Text text;
+    private float waitTime = 2f;
     void Start()
     {
         text = GetComponent<Text>();
@@ -16,9 +17,9 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-        if (Input.anyKeyDown)
+
+        waitTime -= Time.deltaTime;
+        if (Input.anyKeyDown && waitTime <= 0)
         {
             SceneManager.LoadScene("Main");
         }

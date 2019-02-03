@@ -6,16 +6,23 @@
     <e p="D:\Game Development\Unity\UW-GDC-Winter-Game-Jam\Extreme Sports" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="bodyController.cs" t="Include" />
-        <e p="CameraController.cs" t="Include" />
-        <e p="Charge.cs" t="Include" />
-        <e p="earth.cs" t="Include" />
-        <e p="fireball.cs" t="Include" />
+        <e p="Art" t="Include">
+          <e p="Materials" t="Include">
+            <e p="LoadingBarShader.shader" t="Include" />
+          </e>
+        </e>
         <e p="GameManager.cs" t="Include" />
-        <e p="GameOver.cs" t="Include" />
-        <e p="LoadingBarShader.shader" t="Include" />
-        <e p="PlayerController.cs" t="Include" />
-        <e p="rock.cs" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="bodyController.cs" t="Include" />
+          <e p="CameraController.cs" t="Include" />
+          <e p="Charge.cs" t="Include" />
+          <e p="earth.cs" t="Include" />
+          <e p="fireball.cs" t="Include" />
+          <e p="GameOver.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+          <e p="rock.cs" t="Include" />
+          <e p="TimeLeft.cs" t="Include" />
+        </e>
       </e>
       <e p="Extreme Sports.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
