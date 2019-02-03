@@ -49,26 +49,32 @@ public class PlayerController : MonoBehaviour
         rb2d = bodies[bodyIndex].getRigidBody();
         bodyTransform = rb2d.transform;
     }
-
+ 
     // Update is called once per frame
     private void Update()
     {
-        forwardMove = Input.GetAxisRaw("Vertical");
-        rotationMove = Input.GetAxisRaw("Horizontal");
-
+        if (team == Team.blue)
+        {
+            forwardMove = Input.GetAxisRaw("BlueVertical");
+            rotationMove = Input.GetAxisRaw("BlueHorizontal");
+        }
+        else
+        {
+            
+            forwardMove = Input.GetAxisRaw("RedVertical");
+            rotationMove = Input.GetAxisRaw("RedHorizontal");
+        }
 
         rb2d.velocity +=
             ((Vector2) bodyTransform.right) * forwardMove * Time.deltaTime * speed;
         rb2d.angularVelocity = rotationMove * angularSpeed * Time.deltaTime * -1;
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Z) ||
-            Input.GetMouseButtonDown(1))
+        if ((team == Team.blue && (Input.GetButtonDown("BlueSwitch"))) ||(team == Team.red && (Input.GetButtonDown("RedSwitch"))))
         {
             ChangeBody();
         }
 
         //Fire
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) ||
-            Input.GetMouseButtonDown(0))
+        if ((team == Team.blue && (Input.GetButtonDown("BlueFire"))) ||(team == Team.red && (Input.GetButtonDown("RedFire"))))
         {
             bodies[bodyIndex].Fire();
         }
@@ -80,13 +86,23 @@ public class PlayerController : MonoBehaviour
         //print(bodies.Count + ", " + bodyIndex);
         //BodyController b = bodies[bodyIndex];
         //print(2);
+        int index = bodies.IndexOf(b);
         if (bodies.Count == 1)
         {
-            //Todo: Game Over/Restart
+
+            if (team == Team.red)
+            {
+                GameManager.winner = "Blue";
+            }
+            else
+            {
+                GameManager.winner = "Red";
+            }
+            GameManager.GameOver();
             return;
         }
 
-        int index = bodies.IndexOf(b);
+        
         bodies.RemoveAt(index);
         if (index == bodyIndex)
         {

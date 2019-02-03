@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,18 +17,21 @@ public class BodyController : MonoBehaviour
     public Color EmptyColor;
 
     public float chargeSpeed;
+
+    public Vector2 GetPosition()
+    {
+        return transform.position;
+    }
     // Start is called before the first frame update
     public Rigidbody2D getRigidBody()
     {
-        print(rb2d.name);
+        
         return rb2d;
     }
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        
-        
     }
 
     public void Init(PlayerController p)
@@ -43,19 +47,16 @@ public class BodyController : MonoBehaviour
             {
                 charge += chargeSpeed * Time.deltaTime;
             }
-            
         }
+
         LoadingBarRenderer.material.SetColor("_FullColor", FullColor);
         LoadingBarRenderer.material.SetColor("_EmptyColor", EmptyColor);
         LoadingBarRenderer.material.SetFloat("_Charge", charge);
     }
+
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("earthpickup"))
-        {
-            charge = 1f;
-        }
-        else if (other.CompareTag("waterpickup"))
+        if (other.CompareTag("waterpickup") && element == Element.water)
         {
             if (charge < 1f)
             {
@@ -63,6 +64,7 @@ public class BodyController : MonoBehaviour
             }
         }
     }
+
 
     public void Fire()
     {
@@ -73,12 +75,16 @@ public class BodyController : MonoBehaviour
             Rigidbody2D bulletrb2d = bulletInstance.GetComponent<Rigidbody2D>();
             bulletrb2d.velocity = transform.right.normalized * bulletSpeed;
             charge = 0f;
-        } 
-     
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (other.CompareTag("earthpickup") && element == Element.earth)
+        {
+            charge = 1f;
+        }
+
         if (other.CompareTag("court"))
         {
             playerController.Kill(this);

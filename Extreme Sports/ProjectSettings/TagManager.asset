@@ -9,6 +9,7 @@ TagManager:
   - rock
   - waterpickup
   - earthpickup
+  - earth
   layers:
   - Default
   - TransparentFX

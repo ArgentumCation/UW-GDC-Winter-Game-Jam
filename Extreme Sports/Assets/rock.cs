@@ -9,8 +9,13 @@ public class rock : MonoBehaviour
     private int hits = 0;
 
 
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject.CompareTag("earth"))
+        {
+            Destroy(gameObject);
+        }
         hits++;
         if (hits > despawnHits)
         {
