@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="521e3d62-eb32-4a56-b819-2db20e8c8ee4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/BodyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BodyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/court.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/court.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/red-earth.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/red-earth.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/red-fire.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/red-fire.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/red-water.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/red-water.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/rock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/rock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/rock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/rock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/waterlines.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/waterlines.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/court.xcf" beforeDir="false" afterPath="$PROJECT_DIR$/court.xcf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/players.xcf" beforeDir="false" afterPath="$PROJECT_DIR$/players.xcf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waterlines.xcf" beforeDir="false" afterPath="$PROJECT_DIR$/waterlines.xcf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -303,12 +288,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549078007905</updated>
-      <workItem from="1549078011087" duration="33453000" />
+      <workItem from="1549078011087" duration="33748000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33453000" />
+    <option name="totallyTimeSpent" value="33748000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -321,7 +306,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Image Layers" />
