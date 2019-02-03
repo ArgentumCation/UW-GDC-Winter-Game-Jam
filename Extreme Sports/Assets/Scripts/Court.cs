@@ -6,29 +6,34 @@ public class Court : MonoBehaviour
     public List<Collider2D> Zones;
     public List<Collider2D> Lines;
     private PlatformEffector2D centerEffector;
-    private List<Renderer> lineRenderers;
+    private List<SpriteRenderer> lineRenderers;
 
     // This line turns green and can be crossed in either direction
     // -1 at the start of the game means all lines are stops
     // Do not set me directly! Instead use ChangeActiveLine
-    private int activeLine = 3;
-    private static readonly int Active = Shader.PropertyToID("Active");
+    private int activeLine = -1;
+    
+    private static readonly int Active = Shader.PropertyToID("_Active");
 
     private void Start()
     {
         centerEffector = Lines[2].GetComponent<PlatformEffector2D>();
         
-        lineRenderers = new List<Renderer>();
+        lineRenderers = new List<SpriteRenderer>();
         foreach (var line in Lines)
-            lineRenderers.Add(line.GetComponent<Renderer>());
+            lineRenderers.Add(line.GetComponent<SpriteRenderer>());
     }
     
     // Update is called once per frame
     private void Update()
     {
         CheckZoneChanges();
-        
-        if (activeLine != -1)
+
+        if (activeLine == -1)
+        {
+            centerEffector.useOneWay = false;
+        }
+        else
         {
             // Set active line on the field
             for (int i = 0; i < Lines.Count; i++)
@@ -48,6 +53,8 @@ public class Court : MonoBehaviour
         {
             centerEffector.rotationalOffset = (activeLine == 1 ? -90 : 90);
         }
+        
+        centerEffector.useOneWay = true;
 
         activeLine = newLine;
     }

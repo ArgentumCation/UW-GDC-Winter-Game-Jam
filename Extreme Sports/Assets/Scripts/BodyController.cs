@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BodyController : MonoBehaviour
 {
@@ -17,6 +14,10 @@ public class BodyController : MonoBehaviour
     public Color EmptyColor;
 
     public float chargeSpeed;
+    
+    private static readonly int Color = Shader.PropertyToID("_FullColor");
+    private static readonly int EmptyColor1 = Shader.PropertyToID("_EmptyColor");
+    private static readonly int Charge = Shader.PropertyToID("_Charge");
 
     public Vector2 GetPosition()
     {
@@ -49,9 +50,9 @@ public class BodyController : MonoBehaviour
             }
         }
 
-        LoadingBarRenderer.material.SetColor("_FullColor", FullColor);
-        LoadingBarRenderer.material.SetColor("_EmptyColor", EmptyColor);
-        LoadingBarRenderer.material.SetFloat("_Charge", charge);
+        LoadingBarRenderer.material.SetColor(Color, FullColor);
+        LoadingBarRenderer.material.SetColor(EmptyColor1, EmptyColor);
+        LoadingBarRenderer.material.SetFloat(Charge, charge);
     }
 
     private void OnTriggerStay2D(Collider2D other)

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (!GameManager.CanMove)
+            return;
+        
         forwardMove = Input.GetAxisRaw(team + "Vertical");
         rotationMove = Input.GetAxisRaw(team + "Horizontal");
 

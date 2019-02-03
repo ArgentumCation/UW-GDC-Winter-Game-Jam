@@ -54,9 +54,7 @@
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
-                
-                col.xyz = lerp(col.xyz, _ActiveColor.xyz, _Active);
-                
+                col = fixed4(lerp(col.rgb, _ActiveColor.rgb, _Active), col.a);
                 return col;
             }
             ENDCG
