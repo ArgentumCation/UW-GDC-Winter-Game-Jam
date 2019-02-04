@@ -12,7 +12,7 @@ public class Court : MonoBehaviour
     // This line turns green
     // -1 at the start of the game means all lines are stops
     // Do not set me directly! Instead use ChangeCenterLine
-    private int centerLine = -1;
+    private int centerLine = 2;
     
     public float GraceTime;
     private Team movingTeam;
@@ -108,22 +108,20 @@ public class Court : MonoBehaviour
         if (!GameManager.CanMove)
             return;
         
-        int testLine = (centerLine == -1 ? 2 : centerLine);
-        
-        int redZone = testLine + 1;
-        int blueZone = testLine;
+        int redZone = centerLine + 1;
+        int blueZone = centerLine;
         
         if (Zones[redZone].PlayersInside == 0)
         {
             movingTeam = Team.Blue;
             orderedMovers = GameManager.BlueController.bodies.OrderBy(b => -b.transform.position.y).ToList();
-            ChangeCenterLine(testLine + 1);
+            ChangeCenterLine(centerLine + 1);
         }
         else if (Zones[blueZone].PlayersInside == 0)
         {
             movingTeam = Team.Red;
             orderedMovers = GameManager.RedController.bodies.OrderBy(b => -b.transform.position.y).ToList();
-            ChangeCenterLine(testLine - 1);
+            ChangeCenterLine(centerLine - 1);
         }
     }
 }
