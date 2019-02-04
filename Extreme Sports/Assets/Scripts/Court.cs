@@ -38,6 +38,8 @@ public class Court : MonoBehaviour
         foreach (var line in Lines)
             lineRenderers.Add(line.GetComponent<SpriteRenderer>());
         
+        GameManager.CanMove = true;
+        
         Zones[2].PlayersInside = 3;
         Zones[3].PlayersInside = 3;
     }
