@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public float angularSpeed;
     private Transform bodyTransform;
     private Rigidbody2D rb2d;
-
+    private AudioSource audioSource;
     public List<BodyController> bodies;
 
     public int bodyIndex;
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         foreach (BodyController b in bodies)
         {
             b.Init(this);
@@ -102,7 +103,10 @@ public class PlayerController : MonoBehaviour
         {
             bodyIndex--;
         }
-
-        Destroy(b.gameObject);
+        audioSource.Play();    
+        b.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        b.gameObject.transform.Find("Quad").gameObject.SetActive(false);
+        Destroy(b.gameObject,3f);
+        
     }
 }

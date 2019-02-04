@@ -58,6 +58,7 @@ public class CameraController : MonoBehaviour
             
         }
         if(Input.GetKeyDown(KeyCode.Escape)){
+            print("Quitting Game");
             Application.Quit();
         }
     }
