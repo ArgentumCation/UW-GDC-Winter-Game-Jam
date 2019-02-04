@@ -90,17 +90,6 @@ public class Court : MonoBehaviour
         }
         
         CheckZoneChanges();
-
-        if (activeLine != -1)
-        {
-            // Set active line on the field
-            for (int i = 0; i < Lines.Count; i++)
-            {
-                bool thisLineIsActive = (i == activeLine);
-                Lines[i].enabled = thisLineIsActive;
-                lineRenderers[i].material.SetFloat(Active, thisLineIsActive ? 1 : 0);
-            }
-        }
     }
     
     private float Smooth(float inFrac)
@@ -111,6 +100,14 @@ public class Court : MonoBehaviour
     // Used for changing the activeLine since center needs some extra code
     private void ChangeActiveLine(int newLine)
     {
+        // Set active line on the field
+        for (int i = 0; i < Lines.Count; i++)
+        {
+            bool thisLineIsActive = (i == activeLine);
+            Lines[i].enabled = thisLineIsActive;
+            lineRenderers[i].material.SetFloat(Active, thisLineIsActive ? 1 : 0);
+        }
+        
         activeLine = newLine;
         
         for (int i = 0; i < Lines.Count; i++)
@@ -132,6 +129,9 @@ public class Court : MonoBehaviour
     
     private void CheckZoneChanges()
     {
+        if (!GameManager.CanMove)
+            return;
+        
         int testLine = (activeLine == -1 ? 2 : activeLine);
         
         int redZone = testLine + 1;
