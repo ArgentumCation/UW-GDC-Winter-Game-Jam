@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   speed: 10
-  angularSpeed: 20000
+  angularSpeed: 50000
   bodies:
   - {fileID: 2004807750}
   - {fileID: 1644074525}
@@ -2118,12 +2118,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   element: 2
-  bulletSpeed: 5
+  bulletSpeed: 7
   bullet: {fileID: 6982306549504768889, guid: e76edfe68adf01943bea1ca16d2e56e7, type: 3}
   LoadingBarRenderer: {fileID: 295264147}
   FullColor: {r: 0, g: 0, b: 1, a: 0}
   EmptyColor: {r: 0.73333335, g: 0.8705883, b: 0.9921569, a: 0}
-  chargeSpeed: 1
+  chargeSpeed: 3
 --- !u!4 &1005197676
 Transform:
   m_ObjectHideFlags: 0
@@ -4852,12 +4852,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   element: 2
-  bulletSpeed: 5
+  bulletSpeed: 7
   bullet: {fileID: 6982306549504768889, guid: e76edfe68adf01943bea1ca16d2e56e7, type: 3}
   LoadingBarRenderer: {fileID: 709580849}
   FullColor: {r: 0, g: 0, b: 1, a: 0}
   EmptyColor: {r: 0.73333335, g: 0.8705883, b: 0.9921569, a: 0}
-  chargeSpeed: 1
+  chargeSpeed: 3
 --- !u!1 &1762890711
 GameObject:
   m_ObjectHideFlags: 0
@@ -5957,7 +5957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   speed: 10
-  angularSpeed: 20000
+  angularSpeed: 50000
   bodies:
   - {fileID: 839701821}
   - {fileID: 1782614423}
