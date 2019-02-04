@@ -28,15 +28,15 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        float redMaxX = red.bodies.Max(x => x.GetPosition().x);
-        float redMaxY = red.bodies.Max(x => x.GetPosition().y);
-        float blueMaxX = blue.bodies.Max(x => x.GetPosition().x);
-        float blueMaxY = blue.bodies.Max(x => x.GetPosition().y);
+        float redMaxX = red.bodies.Max(x => x.transform.position.x);
+        float redMaxY = red.bodies.Max(x => x.transform.position.y);
+        float blueMaxX = blue.bodies.Max(x => x.transform.position.x);
+        float blueMaxY = blue.bodies.Max(x => x.transform.position.y);
 
-        float redMinX = red.bodies.Min(x => x.GetPosition().x);
-        float redMinY = red.bodies.Min(x => x.GetPosition().y);
-        float blueMinX = blue.bodies.Min(x => x.GetPosition().x);
-        float blueMinY = blue.bodies.Min(x => x.GetPosition().y);
+        float redMinX = red.bodies.Min(x => x.transform.position.x);
+        float redMinY = red.bodies.Min(x => x.transform.position.y);
+        float blueMinX = blue.bodies.Min(x => x.transform.position.x);
+        float blueMinY = blue.bodies.Min(x => x.transform.position.y);
 
         float maxX = redMaxX > blueMaxX ? redMaxX : blueMaxX;
         float minX = redMinX < blueMinX ? redMinX : blueMinX;

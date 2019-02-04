@@ -193,8 +193,8 @@ MonoBehaviour:
   speed: 10
   angularSpeed: 50000
   bodies:
-  - {fileID: 2004807750}
   - {fileID: 1644074525}
+  - {fileID: 2004807750}
   - {fileID: 1005197675}
   bodyIndex: 0
 --- !u!4 &147402514
@@ -3599,6 +3599,7 @@ MonoBehaviour:
   - {fileID: 1746312062}
   - {fileID: 613296650}
   - {fileID: 2145203356}
+  GraceTime: 1
 --- !u!1 &1297372888
 GameObject:
   m_ObjectHideFlags: 0
@@ -6115,8 +6116,8 @@ MonoBehaviour:
   speed: 10
   angularSpeed: 50000
   bodies:
-  - {fileID: 839701821}
   - {fileID: 1782614423}
+  - {fileID: 839701821}
   - {fileID: 1747080371}
   bodyIndex: 0
 --- !u!4 &2092043427

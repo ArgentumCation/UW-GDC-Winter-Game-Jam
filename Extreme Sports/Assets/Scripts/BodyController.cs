@@ -6,7 +6,7 @@ public class BodyController : MonoBehaviour
     public float bulletSpeed;
     public GameObject bullet;
     private PlayerController playerController;
-    private float charge = 1f;
+    private float charge = 1;
     private Rigidbody2D rb2d;
 
     public Renderer LoadingBarRenderer;
@@ -19,16 +19,6 @@ public class BodyController : MonoBehaviour
     private static readonly int EmptyColor1 = Shader.PropertyToID("_EmptyColor");
     private static readonly int Charge = Shader.PropertyToID("_Charge");
 
-    public Vector2 GetPosition()
-    {
-        return transform.position;
-    }
-    // Start is called before the first frame update
-    public Rigidbody2D getRigidBody()
-    {
-        
-        return rb2d;
-    }
 
     private void Awake()
     {
@@ -42,13 +32,8 @@ public class BodyController : MonoBehaviour
 
     private void Update()
     {
-        if (element == Element.fire)
-        {
-            if (charge < 1f)
-            {
-                charge += chargeSpeed * Time.deltaTime;
-            }
-        }
+        if (element == Element.fire && charge < 1)
+            charge += chargeSpeed * Time.deltaTime;
 
         LoadingBarRenderer.material.SetColor(Color, FullColor);
         LoadingBarRenderer.material.SetColor(EmptyColor1, EmptyColor);
@@ -57,38 +42,38 @@ public class BodyController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("waterpickup") && element == Element.water)
-        {
-            if (charge < 1f)
-            {
-                charge += chargeSpeed * Time.deltaTime;
-            }
-        }
+        if (element == Element.water && other.CompareTag("waterpickup") && charge < 1)
+            charge += chargeSpeed * Time.deltaTime;
     }
 
+    public Rigidbody2D getRigidBody()
+    {
+        return rb2d;
+    }
+    
+    public void StopVelocity()
+    {
+        rb2d.velocity = Vector3.zero;
+    }
 
     public void Fire()
     {
-        if (charge >= 1f)
+        if (charge >= 1)
         {
             GameObject bulletInstance = Instantiate(bullet,
                 transform.position + transform.right / 1.5f, Quaternion.identity);
             Rigidbody2D bulletrb2d = bulletInstance.GetComponent<Rigidbody2D>();
             bulletrb2d.velocity = transform.right.normalized * bulletSpeed;
-            charge = 0f;
+            charge = 0;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("earthpickup") && element == Element.earth)
-        {
-            charge = 1f;
-        }
+        if (element == Element.earth && other.CompareTag("earthpickup"))
+            charge = 1;
 
         if (other.CompareTag("court"))
-        {
             playerController.Kill(this);
-        }
     }
 }

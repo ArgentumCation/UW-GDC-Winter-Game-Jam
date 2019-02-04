@@ -14,17 +14,12 @@ public class TimeLeft : MonoBehaviour
     }
     void Update()
     {
-        SecondsLeft -= Time.deltaTime;
-        int minutes = (int)(SecondsLeft / 60);
-        int seconds = (int)(SecondsLeft - (minutes * 60));
-        String time = "" + minutes+":";
-        if (seconds < 10)
-        {
-            time += "0";
-        }
-
-        time += seconds;
-        text.text = time;
+        if (GameManager.CanMove)
+            SecondsLeft -= Time.deltaTime;
+        
+        int minutes = (int) SecondsLeft / 60;
+        int seconds = (int) SecondsLeft % 60;
+        text.text = String.Format("{0}:{1:D2}", minutes, seconds);
         if (SecondsLeft <= 0)
         {
             GameManager.GameOver();
