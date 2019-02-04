@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         int index = bodies.IndexOf(b);
         if (bodies.Count == 1)
         {
-            GameManager.winner = team.ToString();
+            GameManager.winner = (team == Team.Red) ? "Blue" : "Red";
             GameManager.GameOver();
             return;
         }

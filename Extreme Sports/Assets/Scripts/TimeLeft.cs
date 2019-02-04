@@ -22,6 +22,7 @@ public class TimeLeft : MonoBehaviour
         text.text = String.Format("{0}:{1:D2}", minutes, seconds);
         if (SecondsLeft <= 0)
         {
+            GameManager.winner = "Neither";
             GameManager.GameOver();
         }
     }
