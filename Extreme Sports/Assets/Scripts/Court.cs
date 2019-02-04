@@ -7,42 +7,52 @@ public class Court : MonoBehaviour
     public List<Zone> Zones;
     public List<Line> Lines;
     private List<SpriteRenderer> lineRenderers;
+    // Positions to move to when changing zones
     public List<Position> Positions;
 
     // This line turns green
-    // -1 at the start of the game means all lines are stops
     // Do not set me directly! Instead use ChangeCenterLine
     private int centerLine = 2;
     
+    // How long it takes to move the players when the center line changes
     public float GraceTime;
-    private Team movingTeam;
+    // How long until the players can move again
     private float timeUntilMove;
-    private List<Vector3> moverPositions;
+    // Which team is changing zones.
+    // When not changing zones, this is garbage!
+    private Team movingTeam;
+    // Ordered from highest y value to lowest.
+    // When not changing zones, this is garbage!
     private List<BodyController> orderedMovers;
+    // Where the changing team started.
+    // When not changing zones, this is garbage!
+    private List<Vector3> moverPositions;
     
+    // Used for shader editing, don't touch me
     private static readonly int Active = Shader.PropertyToID("_Active");
 
     private void Start()
     {
+        // Grab all the SpriteRenderers from the lines
         lineRenderers = new List<SpriteRenderer>();
         foreach (var line in Lines)
             lineRenderers.Add(line.GetComponent<SpriteRenderer>());
     }
     
-    // Update is called once per frame
     private void Update()
     {
-        if (GameManager.CanMove)
+        if (GameManager.CanMove)  // Normal play
         {
             CheckZoneChanges();
         }
-        else
+        else  // Changing zones
         {
+            // Figure out which zone the movers are going to
             int zone = centerLine;
             if (movingTeam == Team.Red)
-            {
                 zone++;
-            }
+            
+            // Move, with positions specified by the number of living players
             switch (moverPositions.Count)
             {
                 case 3:
@@ -57,13 +67,15 @@ public class Court : MonoBehaviour
                 case 1:
                     LerpToPos(movingTeam, 0, Positions[zone].Bot);
                     break;
-                default:
+                default:  // Should never get called
                     break;
             }
             
+            // Stop all velocities. This is also where you'd set rotations
             foreach(BodyController body in GameManager.RedController.bodies)
                 body.StopVelocity();
             
+            // Manage how much time is left before play resumes
             timeUntilMove -= Time.deltaTime;
             if (timeUntilMove <= 0)
                 GameManager.CanMove = true;
@@ -89,28 +101,35 @@ public class Court : MonoBehaviour
         
         centerLine = newLine;
         
+        // Update which lines cannot be crossed in which directions
         for (int i = 0; i < Lines.Count; i++)
         {
             Lines[i].rotation = (newLine > i) ? 90 : -90;
             Lines[i].useOneWay = (i != centerLine);
         }
         
+        // Signal to move the players to the new positions
         timeUntilMove = GraceTime;
         GameManager.CanMove = false;
         
+        // Set up some stuff to ensure the lerping works right
         moverPositions = new List<Vector3>();
         foreach (BodyController body in orderedMovers)
             moverPositions.Add(body.transform.position);
     }
     
+    // If a zone change is required, this will also call that
     private void CheckZoneChanges()
     {
+        // Don't do anything if we're changing zones
         if (!GameManager.CanMove)
             return;
         
+        // Figure out which zones to check
         int redZone = centerLine + 1;
         int blueZone = centerLine;
         
+        // Check zones
         if (Zones[redZone].PlayersInside == 0)
         {
             movingTeam = Team.Blue;
