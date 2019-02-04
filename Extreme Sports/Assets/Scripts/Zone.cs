@@ -11,6 +11,8 @@ public class Zone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayersInside++;
+            if (PlayersInside > 3)
+                PlayersInside = 3;
         }
     }
     

@@ -37,6 +37,9 @@ public class Court : MonoBehaviour
         lineRenderers = new List<SpriteRenderer>();
         foreach (var line in Lines)
             lineRenderers.Add(line.GetComponent<SpriteRenderer>());
+        
+        Zones[2].PlayersInside = 3;
+        Zones[3].PlayersInside = 3;
     }
     
     private void Update()
