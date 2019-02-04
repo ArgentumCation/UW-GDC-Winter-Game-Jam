@@ -12,7 +12,5 @@ public static class GameManager
     {
         Console.WriteLine("Game Over");
         SceneManager.LoadScene("GameOver");
-        
     }
-
 }
