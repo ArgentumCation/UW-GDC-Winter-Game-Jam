@@ -1613,7 +1613,7 @@ GameObject:
   - component: {fileID: 839701821}
   m_Layer: 8
   m_Name: blue-earth
-  m_TagString: earth
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2141,7 +2141,7 @@ GameObject:
   - component: {fileID: 1005197677}
   m_Layer: 8
   m_Name: red-water
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3592,6 +3592,13 @@ MonoBehaviour:
   - {fileID: 1209395282}
   - {fileID: 882690276}
   - {fileID: 1973859887}
+  Positions:
+  - {fileID: 559379689}
+  - {fileID: 1297372889}
+  - {fileID: 44239374}
+  - {fileID: 1746312062}
+  - {fileID: 613296650}
+  - {fileID: 2145203356}
 --- !u!1 &1297372888
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,7 +3785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1563113157}
   - component: {fileID: 1563113158}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: earthPickups
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4354,7 +4361,7 @@ GameObject:
   - component: {fileID: 1644074525}
   m_Layer: 8
   m_Name: red-fire
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4738,7 +4745,7 @@ GameObject:
   - component: {fileID: 1747080368}
   m_Layer: 8
   m_Name: blue-water
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5137,7 +5144,7 @@ GameObject:
   - component: {fileID: 1782614423}
   m_Layer: 8
   m_Name: blue-fire
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5835,7 +5842,7 @@ GameObject:
   - component: {fileID: 2004807750}
   m_Layer: 8
   m_Name: red-earth
-  m_TagString: earth
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

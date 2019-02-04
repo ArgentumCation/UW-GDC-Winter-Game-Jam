@@ -5,24 +5,20 @@ using UnityEngine;
 public class Zone : MonoBehaviour
 {
     public int PlayersInside;
-    private bool clean;
     
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!clean)
-        {
-            clean = true;
-            PlayersInside = 0;
-        }
-        
-        if (other.CompareTag("Players"))
+        if (other.CompareTag("Player"))
         {
             PlayersInside++;
         }
     }
     
-    private void Update()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        clean = false;
+        if (other.CompareTag("Player"))
+        {
+            PlayersInside--;
+        }
     }
 }

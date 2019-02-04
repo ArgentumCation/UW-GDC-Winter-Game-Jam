@@ -40,7 +40,13 @@ public class PlayerController : MonoBehaviour
             b.Init(this);
         }
 
+        bodyIndex = -1;
         ChangeBody();
+        
+        if (team == Team.Red)
+            GameManager.RedController = this;
+        else
+            GameManager.BlueController = this;
     }
 
     private void ChangeBody()
