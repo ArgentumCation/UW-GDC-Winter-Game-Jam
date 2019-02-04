@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   speed: 10
-  angularSpeed: 50000
+  angularSpeed: 10000
   bodies:
   - {fileID: 1644074525}
   - {fileID: 2004807750}
@@ -6114,7 +6114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   speed: 10
-  angularSpeed: 50000
+  angularSpeed: 10000
   bodies:
   - {fileID: 1782614423}
   - {fileID: 839701821}
