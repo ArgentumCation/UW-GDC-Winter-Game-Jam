@@ -1941,7 +1941,7 @@ MonoBehaviour:
   LoadingBarRenderer: {fileID: 1668581398}
   FullColor: {r: 0.14509805, g: 0.6509804, b: 0.14509805, a: 1}
   EmptyColor: {r: 0.63529414, g: 0.93725497, b: 0.47450984, a: 0}
-  chargeSpeed: 0
+  chargeSpeed: 4
 --- !u!114 &839701822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2264,8 +2264,8 @@ MonoBehaviour:
   bullet: {fileID: 6982306549504768889, guid: e76edfe68adf01943bea1ca16d2e56e7, type: 3}
   LoadingBarRenderer: {fileID: 295264147}
   FullColor: {r: 0.12156863, g: 0.12156863, b: 0.62352943, a: 0}
-  EmptyColor: {r: 0.73333335, g: 0.8705883, b: 0.9921569, a: 0}
-  chargeSpeed: 3
+  EmptyColor: {r: 0.57254905, g: 0.9568628, b: 1, a: 0}
+  chargeSpeed: 4
 --- !u!4 &1005197676
 Transform:
   m_ObjectHideFlags: 0
@@ -4485,7 +4485,7 @@ MonoBehaviour:
   bullet: {fileID: 5352428561986499597, guid: 20575382ac44d0247944ddcfc6ac6a0b, type: 3}
   LoadingBarRenderer: {fileID: 549490016}
   FullColor: {r: 0.4745098, g: 0.043137256, b: 0.043137256, a: 1}
-  EmptyColor: {r: 1, g: 0.8078432, b: 0.82745105, a: 0}
+  EmptyColor: {r: 1, g: 0.54509807, b: 0.6117647, a: 0}
   chargeSpeed: 2
 --- !u!4 &1644074526
 Transform:
@@ -5074,7 +5074,7 @@ MonoBehaviour:
   LoadingBarRenderer: {fileID: 709580849}
   FullColor: {r: 0.12041651, g: 0.12041651, b: 0.6226415, a: 0}
   EmptyColor: {r: 0.5686275, g: 0.9568628, b: 1, a: 0}
-  chargeSpeed: 3
+  chargeSpeed: 4
 --- !u!1 &1762890711
 GameObject:
   m_ObjectHideFlags: 0
@@ -5966,8 +5966,8 @@ MonoBehaviour:
   bullet: {fileID: 7535323161414046740, guid: fad9bfefc0f9ddd4fa8d0cd8bac29b37, type: 3}
   LoadingBarRenderer: {fileID: 1338484190}
   FullColor: {r: 0.14509805, g: 0.6509804, b: 0.14509805, a: 1}
-  EmptyColor: {r: 0.7019608, g: 0.81568635, b: 0.7490196, a: 0}
-  chargeSpeed: 0
+  EmptyColor: {r: 0.6313726, g: 0.93725497, b: 0.47450984, a: 0}
+  chargeSpeed: 4
 --- !u!4 &2004807751
 Transform:
   m_ObjectHideFlags: 0

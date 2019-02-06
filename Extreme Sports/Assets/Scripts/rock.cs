@@ -19,9 +19,6 @@ public class rock : MonoBehaviour
 
         if (other.gameObject.CompareTag("earth"))
         {
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.GetComponent<TrailRenderer>().enabled = false;
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             Destroy(gameObject);
             return;
         }
@@ -29,10 +26,8 @@ public class rock : MonoBehaviour
         hits++;
         if (hits > despawnHits)
         {
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.GetComponent<TrailRenderer>().enabled = false;
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             Destroy(gameObject);
+            return;
         }
         
     }
@@ -41,7 +36,7 @@ public class rock : MonoBehaviour
     {
         if (other.CompareTag("court"))
         {
-            Destroy(gameObject);   
+            Destroy(gameObject);
         }
         
     }

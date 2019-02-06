@@ -44,6 +44,9 @@ public class BodyController : MonoBehaviour
     {
         if (element == Element.water && other.CompareTag("waterpickup") && charge < 1)
             charge += chargeSpeed * Time.deltaTime;
+        
+        if (element == Element.earth && other.CompareTag("earthpickup"))
+            charge += chargeSpeed * Time.deltaTime;
     }
 
     public Rigidbody2D getRigidBody()
@@ -70,8 +73,7 @@ public class BodyController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (element == Element.earth && other.CompareTag("earthpickup"))
-            charge = 1;
+
 
         if (other.CompareTag("court"))
             playerController.Kill(this);
