@@ -146,8 +146,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -32, y: -92}
-  m_SizeDelta: {x: 267.59998, y: 213}
+  m_AnchoredPosition: {x: -32, y: -142.8}
+  m_SizeDelta: {x: 320.4, y: 333.1}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &499680559
 MonoBehaviour:
@@ -182,7 +182,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Goal: Try to knock the other team out of the ring'
+  m_Text: "Goal:\n Try to knock the other team out of the ring\n\nTo Reload:\nRed:
+    Automatically\n\nBlue: Move near the yellow lines\n\nGreen: Move near the green
+    circles"
 --- !u!222 &499680560
 CanvasRenderer:
   m_ObjectHideFlags: 0
