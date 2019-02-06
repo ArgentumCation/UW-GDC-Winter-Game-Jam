@@ -13,12 +13,16 @@ public class CameraController : MonoBehaviour
 
     public PlayerController red;
     public PlayerController blue;
+    public List<AudioClip> songs;
+
     public float speed;
     public float scale = 5f;
     public float zoomSpeed;
     private Camera camera;
+    public int song = 0;
 
     private AudioSource audioSource;
+
     // Update is called once per frame
     private void Start()
     {
@@ -44,22 +48,30 @@ public class CameraController : MonoBehaviour
         float minY = redMinY < blueMinY ? redMinY : blueMinY;
 
         Vector3 target = new Vector3((maxX + minX) / 2f, (maxY + minY) / 2f,
-            transform.position.z);    
-        transform.position = Vector3.Lerp(transform.position, target,speed);
-        Vector2 minVect = new Vector2(minX,minY);
-        Vector2 maxVect = new Vector2(maxX,maxX);
+            transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, target, speed);
+        Vector2 minVect = new Vector2(minX, minY);
+        Vector2 maxVect = new Vector2(maxX, maxX);
         float targetSize = ((maxVect - minVect).magnitude + scale) / 4.0f;
-        camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, targetSize,zoomSpeed) ;
-        
+        camera.orthographicSize =
+            Mathf.Lerp(camera.orthographicSize, targetSize, zoomSpeed);
+
         if (Input.GetKeyDown(KeyCode.M))
         {
             audioSource.volume = audioSource.volume <= 0.001f ? 1f : 0f;
-            
-            
         }
-        if(Input.GetKeyDown(KeyCode.Escape)){
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             print("Quitting Game");
             Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            song = (song + 1) % songs.Count;
+            audioSource.clip = songs[song];
+            audioSource.Play();
         }
     }
 }
