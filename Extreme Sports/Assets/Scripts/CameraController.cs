@@ -60,7 +60,10 @@ public class CameraController : MonoBehaviour
         {
             audioSource.volume = audioSource.volume <= 0.001f ? 1f : 0f;
         }
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+           // SceneManager.LoadScene("TitleScreen");
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             print("Quitting Game");
